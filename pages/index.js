@@ -1,4 +1,4 @@
-import Landing from "../components/landing";
+import { Landing } from "../components/landing";
 import { ComponentContextProvider } from "../components/ComponentContext";
 
 export default function Home() {

@@ -5,7 +5,7 @@ import { ComponentContext } from "./ComponentContext";
 export function Register() {
   const { Component, SetComponent } = useContext(ComponentContext);
   return (
-    <form className="flex flex-col w-10/12 mx-auto my-auto p-12 rounded-lg border border-gray-300 bg-white">
+    <form className="flex flex-col w-10/12 mx-auto my-auto px-12 py-5 rounded-lg border border-gray-300 bg-white">
       <Head>
         <title>Business | Register</title>
       </Head>

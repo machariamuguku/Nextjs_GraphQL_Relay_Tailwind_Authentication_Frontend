@@ -5,7 +5,7 @@ import { ComponentContext } from "./ComponentContext";
 export function Login() {
   const { Component, SetComponent } = useContext(ComponentContext);
   return (
-    <form className="flex flex-col w-10/12 mx-auto my-auto rounded-lg border border-gray-300 bg-white">
+    <form className="flex flex-col w-full sm:w-full md:w-full lg:w-10/12 xl:w-10/12 mx-auto my-auto rounded-lg border border-gray-300 bg-white">
       <div className="flex flex-col w-full mx-auto my-auto px-12 pt-12 pb-6">
         <Head>
           <title>Business | Login</title>
