@@ -201,7 +201,7 @@ export function Register() {
         type="submit"
         className="w-1/4 h-12 bg-red-600 mx-auto text-white rounded"
       >
-        Login
+        Register
       </button>
     </form>
   );
