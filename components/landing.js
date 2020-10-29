@@ -1,8 +1,14 @@
 import UserLogin from "../assets/undraw_businessman_97x4.svg";
 
-import Login from "./login";
+import { Login } from "./login";
+import { Register } from "./register";
+
+import { useContext } from "react";
+import { ComponentContext } from "./ComponentContext";
 
 export default function Landing() {
+  const { Component } = useContext(ComponentContext);
+
   return (
     <div className="flex flex-row w-full h-full bg-gray-100">
       {/* tab 1 */}
@@ -23,7 +29,8 @@ export default function Landing() {
       {/* tab 2 */}
       <div className="flex flex-col w-6/12 h-screen">
         {/* Toggle Login and Register Forms */}
-        <Login />
+        {Component === "LOGIN_COMPONENT" && <Login />}
+        {Component === "REGISTER_COMPONENT" && <Register />}
       </div>
     </div>
   );

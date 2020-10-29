@@ -1,9 +1,10 @@
 import Landing from "../components/landing";
+import { ComponentContextProvider } from "../components/ComponentContext";
 
 export default function Home() {
   return (
-    <div className="flex flex-row w-full h-full bg-gray-100">
+    <ComponentContextProvider className="flex flex-row w-full h-full bg-gray-100">
       <Landing />
-    </div>
+    </ComponentContextProvider>
   );
 }
