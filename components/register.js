@@ -1,11 +1,21 @@
 import Head from "next/head";
 import { useContext } from "react";
 import { ComponentContext } from "./ComponentContext";
+import { useForm } from "react-hook-form";
 
 export function Register() {
   const { Component, SetComponent } = useContext(ComponentContext);
+  const { register, handleSubmit, errors, getValues } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form className="flex flex-col w-10/12 mx-auto my-auto px-12 py-5 rounded-lg border border-gray-300 bg-white">
+    <form
+      className="flex flex-col w-full sm:w-full md:w-full lg:w-10/12 xl:w-10/12 mx-auto my-auto px-4 md:px-12 lg:px-12 xl:px-12 py-5 rounded-lg border border-gray-300 bg-white"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Head>
         <title>Business | Register</title>
       </Head>
@@ -48,8 +58,13 @@ export function Register() {
         type="text"
         placeholder="John"
         id="first_name"
+        name="first_name"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({ required: true })}
       />
+      {errors.first_name && (
+        <p className="text-red-600 text-sm">First Name can't be blank </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap">
         <svg
@@ -74,8 +89,13 @@ export function Register() {
         type="text"
         placeholder="Doe"
         id="last_name"
+        name="last_name"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({ required: true })}
       />
+      {errors.last_name && (
+        <p className="text-red-600 text-sm">Last Name can't be blank </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap">
         <svg
@@ -97,8 +117,16 @@ export function Register() {
         type="email"
         placeholder="example@mail.com"
         id="email"
+        name="email"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({
+          required: true,
+          pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        })}
       />
+      {errors.email && (
+        <p className="text-red-600 text-sm">Email must be valid </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap">
         <svg
@@ -119,8 +147,13 @@ export function Register() {
         type="tel"
         placeholder="+25472012345678"
         id="phone_number"
+        name="phone_number"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({ required: true, maxLength: 13, minLength: 10 })}
       />
+      {errors.phone_number && (
+        <p className="text-red-600 text-sm">Phone Number must be valid </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap">
         <svg
@@ -141,8 +174,20 @@ export function Register() {
         type="password"
         placeholder="password"
         id="password"
+        name="password"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({
+          required: true,
+          minLength: 8,
+          pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        })}
       />
+      {errors.password && (
+        <p className="text-red-600 text-sm">
+          Password must have a minimum of eight characters, one letter, one
+          number and one special character
+        </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap">
         <svg
@@ -166,8 +211,19 @@ export function Register() {
         type="password"
         placeholder="confirm password"
         id="confirm_password"
+        name="confirm_password"
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+        ref={register({
+          required: true,
+          validate: {
+            passEqual: (value) =>
+              value === getValues().password || "Password confirmation error!",
+          },
+        })}
       />
+      {errors.confirm_password && (
+        <p className="text-red-600 text-sm">Passwords must match </p>
+      )}
 
       <div className="flex flex-row flex-no-wrap justify-between">
         <div className="flex flex-row flex-no-wrap my-auto">
@@ -175,6 +231,8 @@ export function Register() {
             type="checkbox"
             className="h-10 my-auto text-red-600"
             id="checky"
+            name="checky"
+            ref={register({ required: true })}
           />
 
           <label
@@ -196,6 +254,11 @@ export function Register() {
           Login Instead
         </span>
       </div>
+      {errors.checky && (
+        <p className="text-red-600 text-sm">
+          Must Agree to the terms and conditions
+        </p>
+      )}
 
       <button
         type="submit"

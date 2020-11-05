@@ -1,12 +1,22 @@
 import Head from "next/head";
 import { useContext } from "react";
 import { ComponentContext } from "./ComponentContext";
+import { useForm } from "react-hook-form";
 
 export function Login() {
   const { Component, SetComponent } = useContext(ComponentContext);
+  const { register, handleSubmit, errors } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form className="flex flex-col w-full sm:w-full md:w-full lg:w-10/12 xl:w-10/12 mx-auto my-auto rounded-lg border border-gray-300 bg-white">
-      <div className="flex flex-col w-full mx-auto my-auto px-12 pt-12 pb-6">
+    <form
+      className="flex flex-col w-full sm:w-full md:w-full lg:w-10/12 xl:w-10/12 mx-auto my-auto rounded-lg border border-gray-300 bg-white"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className="flex flex-col w-full mx-auto my-auto px-4 md:px-12 lg:px-12 xl:px-12 py-5 pt-12 pb-6">
         <Head>
           <title>Business | Login</title>
         </Head>
@@ -46,8 +56,16 @@ export function Login() {
           type="email"
           placeholder="example@mail.com"
           id="email"
+          name="email"
           className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+          ref={register({
+            required: true,
+            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          })}
         />
+        {errors.email && (
+          <p className="text-red-600 text-sm">Email must be valid </p>
+        )}
 
         <div className="flex flex-row flex-no-wrap">
           <svg
@@ -68,8 +86,20 @@ export function Login() {
           type="password"
           placeholder="password"
           id="password"
+          name="password"
           className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
+          ref={register({
+            required: true,
+            minLength: 8,
+            pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+          })}
         />
+        {errors.password && (
+          <p className="text-red-600 text-sm">
+            Password must have a minimum of eight characters, one letter, one
+            number and one special character
+          </p>
+        )}
 
         <div className="flex flex-row flex-no-wrap justify-between">
           <div className="flex flex-row flex-no-wrap my-auto">
@@ -77,6 +107,8 @@ export function Login() {
               type="checkbox"
               className="h-10 my-auto text-red-600"
               id="checky"
+              name="checky"
+              ref={register}
             />
 
             <label
@@ -95,7 +127,6 @@ export function Login() {
           Login
         </button>
       </div>
-
       {/* float this down */}
       <div className="flex flex-row flex-no-wrap justify-between px-3 pb-2">
         <div className="flex flex-row flex-no-wrap my-auto">
