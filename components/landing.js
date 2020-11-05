@@ -31,9 +31,9 @@ export function Landing() {
         {Component === "LOGIN_COMPONENT" && <Login />}
         {Component === "REGISTER_COMPONENT" && <Register />}
 
-        <footer className="mx-auto mb-3 text-xs sm:text-xs italic text-blue-800 font-extrabold">
-          ©{new Date().getFullYear()} Go-lang,GraphQL,Next.js,Authentication |{" "}
-          <a href="http://www.muguku.co.ke/">www.muguku.co.ke</a>
+        <footer className="flex flex-col md:flex-row lg:flex-row xl:flex-row mx-auto mb-3 text-sm lg:text-xs italic text-blue-800 font-extrabold">
+          ©{new Date().getFullYear()} Go-lang, GraphQL, Next.js, Authentication
+          | &nbsp; <a href="http://www.muguku.co.ke/">www.muguku.co.ke</a>
         </footer>
       </div>
     </div>
