@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { useContext } from "react";
-import { ComponentContext } from "./ComponentContext";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
-export function Login() {
-  const { Component, SetComponent } = useContext(ComponentContext);
+export function LoginComponent() {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
@@ -130,28 +128,18 @@ export function Login() {
       {/* float this down */}
       <div className="flex flex-row flex-no-wrap justify-between px-3 pb-2">
         <div className="flex flex-row flex-no-wrap my-auto">
-          <span
-            className="my-auto italic text-blue-800 text-sm cursor-pointer"
-            onClick={() => {
-              if (Component !== "REGISTER_COMPONENT") {
-                SetComponent("REGISTER_COMPONENT");
-              }
-            }}
-          >
-            forgot password?
-          </span>
+          <Link href="/forgot/password">
+            <a className="my-auto italic text-blue-800 text-sm cursor-pointer">
+              forgot password?
+            </a>
+          </Link>
         </div>
 
-        <span
-          className="my-auto italic text-blue-800 text-sm cursor-pointer"
-          onClick={() => {
-            if (Component !== "REGISTER_COMPONENT") {
-              SetComponent("REGISTER_COMPONENT");
-            }
-          }}
-        >
-          create account
-        </span>
+        <Link href="/register">
+          <a className="my-auto italic text-blue-800 text-sm cursor-pointer">
+            Register?
+          </a>
+        </Link>
       </div>
     </form>
   );

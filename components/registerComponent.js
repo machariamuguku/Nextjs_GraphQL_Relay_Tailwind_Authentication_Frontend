@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { useContext } from "react";
-import { ComponentContext } from "./ComponentContext";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 
-export function Register() {
-  const { Component, SetComponent } = useContext(ComponentContext);
+export function RegisterComponent() {
   const { register, handleSubmit, errors, getValues } = useForm();
 
   const onSubmit = (data) => {
@@ -243,16 +241,11 @@ export function Register() {
           </label>
         </div>
 
-        <span
-          className="my-auto italic text-blue-800 text-sm cursor-pointer"
-          onClick={() => {
-            if (Component !== "LOGIN_COMPONENT") {
-              SetComponent("LOGIN_COMPONENT");
-            }
-          }}
-        >
-          Login Instead
-        </span>
+        <Link href="/login">
+          <a className="my-auto italic text-blue-800 text-sm cursor-pointer">
+            Login?
+          </a>
+        </Link>
       </div>
       {errors.checky && (
         <p className="text-red-600 text-sm">
