@@ -15,7 +15,7 @@ export function Landing({ children }) {
         </div>
 
         {/* tab 2 */}
-        <div className="flex flex-col w-full lg:w-6/12 xl:w-6/12 h-screen bg-no-repeat">
+        <div className="flex flex-col w-full lg:w-6/12 xl:w-6/12 h-screen bg-no-repeat overflow-y-scroll">
           <h2 className="flex xl:hidden lg:hidden mx-auto mt-10 text-base sm:text-3xl md:text-3xl text-blue-800 font-bold font-mono">
             Welcome to Our Totally Real Business
           </h2>
