@@ -61,7 +61,7 @@ export function RegisterComponent() {
         ref={register({ required: true })}
       />
       {errors.first_name && (
-        <p className="text-red-600 text-sm">First Name can't be blank </p>
+        <p className="text-red-600 text-sm">First Name cannot be blank </p>
       )}
 
       <div className="flex flex-row flex-no-wrap">
@@ -92,7 +92,7 @@ export function RegisterComponent() {
         ref={register({ required: true })}
       />
       {errors.last_name && (
-        <p className="text-red-600 text-sm">Last Name can't be blank </p>
+        <p className="text-red-600 text-sm">Last Name cannot be blank </p>
       )}
 
       <div className="flex flex-row flex-no-wrap">
