@@ -119,6 +119,7 @@ export function RegisterComponent() {
         className="h-8 mb-2 pl-2 rounded-lg border border-gray-400"
         ref={register({
           required: true,
+          // match email address
           pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         })}
       />
@@ -177,6 +178,7 @@ export function RegisterComponent() {
         ref={register({
           required: true,
           minLength: 8,
+          // match password (8 characters, one letter, one number, one special character)
           pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
         })}
       />
