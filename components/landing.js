@@ -7,11 +7,12 @@ export function Landing({ children }) {
       <div className="flex flex-col lg:flex-row xl:flex-row w-full h-full">
         {/* tab 1 */}
         <div
-          className="hidden xl:flex lg:flex w-full lg:w-6/12 xl:w-6/12 h-screen bg-no-repeat"
+          className="hidden xl:flex lg:flex md:flex w-full lg:w-6/12 xl:w-6/12 h-screen bg-no-repeat bg-cover relative"
           style={{ backgroundImage: `url('${UserLogin}')` }}
         >
+          <div className="absolute w-full h-full bg-gray-200 opacity-25 z-0"></div>
           <Link href="/login">
-            <a className="mx-auto mt-10 text-2xl text-blue-800 font-bold font-mono">
+            <a className="mx-auto h-4 mt-10 text-lg text-blue-800 font-bold font-mono z-10">
               Welcome To Our Totally Real Business
             </a>
           </Link>
@@ -20,7 +21,7 @@ export function Landing({ children }) {
         {/* tab 2 */}
         <div className="flex flex-col w-full lg:w-6/12 xl:w-6/12 h-screen bg-no-repeat overflow-y-scroll">
           <Link href="/login">
-            <a className="flex xl:hidden lg:hidden mx-auto mt-10 text-base sm:text-3xl md:text-3xl text-blue-800 font-bold font-mono">
+            <a className="flex xl:hidden lg:hidden mx-auto h-4 mt-10 text-base sm:text-3xl md:text-3xl text-blue-800 font-bold font-mono">
               Welcome to Our Totally Real Business
             </a>
           </Link>
