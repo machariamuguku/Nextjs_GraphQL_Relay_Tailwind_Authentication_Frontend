@@ -1,9 +1,21 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-export function RegisterComponent() {
-  const { register, handleSubmit, errors, getValues } = useForm();
+// form data structure
+interface formData {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: number;
+  password: string;
+  confirm_password: string;
+  checky: boolean;
+}
+
+export const RegisterComponent: NextPage = () => {
+  const { register, handleSubmit, errors, getValues } = useForm<formData>();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -263,4 +275,4 @@ export function RegisterComponent() {
       </button>
     </form>
   );
-}
+};

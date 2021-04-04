@@ -1,9 +1,16 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-export function LoginComponent() {
-  const { register, handleSubmit, errors } = useForm();
+// form data structure
+interface formData {
+  email: string;
+  password: string;
+}
+
+export const LoginComponent: NextPage = () => {
+  const { register, handleSubmit, errors } = useForm<formData>();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -145,4 +152,4 @@ export function LoginComponent() {
       </div>
     </form>
   );
-}
+};

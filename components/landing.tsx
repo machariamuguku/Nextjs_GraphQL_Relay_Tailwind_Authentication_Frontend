@@ -1,7 +1,13 @@
+import { ReactNode } from "react";
+import { NextPage } from "next";
 import UserLogin from "../assets/undraw_businessman_97x4.svg";
 import Link from "next/link";
 
-export function Landing({ children }) {
+interface AuthProps {
+  children: ReactNode;
+}
+
+export const Landing: NextPage<AuthProps> = ({ children }) => {
   return (
     <div className="flex flex-row w-full h-full bg-gray-100">
       <div className="flex flex-col lg:flex-row xl:flex-row w-full h-full">
@@ -35,4 +41,4 @@ export function Landing({ children }) {
       </div>
     </div>
   );
-}
+};

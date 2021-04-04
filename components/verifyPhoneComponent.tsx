@@ -1,9 +1,16 @@
+import { ReactNode } from "react";
+import { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-export function VerifyPhone() {
-  const { register, handleSubmit, errors } = useForm();
+// form data structure
+interface formData {
+  phone_code: string;
+}
+
+export const VerifyPhone: NextPage = () => {
+  const { register, handleSubmit, errors } = useForm<formData>();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -93,4 +100,4 @@ export function VerifyPhone() {
       </div>
     </form>
   );
-}
+};
