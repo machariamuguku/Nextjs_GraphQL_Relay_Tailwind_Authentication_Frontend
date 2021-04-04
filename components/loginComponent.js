@@ -24,7 +24,7 @@ export function LoginComponent() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="h-5 w-5 italic my-auto text-red-600"
+            className="h-5 w-5 italic my-auto text-gray-400"
           >
             <path
               fillRule="evenodd"
@@ -39,7 +39,7 @@ export function LoginComponent() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="h-5 w-5 mr-1 italic my-auto text-red-600"
+            className="h-5 w-5 mr-1 italic my-auto text-gray-400"
           >
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -63,7 +63,7 @@ export function LoginComponent() {
           })}
         />
         {errors.email && (
-          <p className="text-red-600 text-sm">Email must be valid </p>
+          <p className="text-red-700 text-sm">Email must be valid </p>
         )}
 
         <div className="flex flex-row flex-no-wrap">
@@ -71,7 +71,7 @@ export function LoginComponent() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="h-5 w-4 mr-1 italic my-auto  text-red-600"
+            className="h-5 w-4 mr-1 italic my-auto text-gray-400"
           >
             <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
           </svg>
@@ -95,7 +95,7 @@ export function LoginComponent() {
           })}
         />
         {errors.password && (
-          <p className="text-red-600 text-sm">
+          <p className="text-red-700 text-sm">
             Password must have a minimum of eight characters, one letter, one
             number and one special character
           </p>
@@ -105,7 +105,7 @@ export function LoginComponent() {
           <div className="flex flex-row flex-no-wrap my-auto">
             <input
               type="checkbox"
-              className="h-10 my-auto text-red-600"
+              className="h-10 my-auto text-gray-400"
               id="checky"
               name="checky"
               ref={register}
@@ -122,7 +122,7 @@ export function LoginComponent() {
 
         <button
           type="submit"
-          className="w-1/4 h-12 bg-red-600 mx-auto text-white rounded mb-auto pb-auto"
+          className="w-1/4 h-12 mx-auto text-white rounded-lg mb-auto pb-auto bg-indigo-600 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none"
         >
           Login
         </button>

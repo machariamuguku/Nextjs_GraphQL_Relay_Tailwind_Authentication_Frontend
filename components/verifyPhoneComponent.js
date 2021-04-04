@@ -26,7 +26,7 @@ export function VerifyPhone() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="h-5 w-5 italic my-auto text-red-600"
+            className="h-5 w-5 italic my-auto text-gray-400"
           >
             <path
               fillRule="evenodd"
@@ -42,7 +42,7 @@ export function VerifyPhone() {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            className="h-5 w-4 mr-1 italic my-auto  text-red-600"
+            className="h-5 w-4 mr-1 italic my-auto  text-gray-400"
           >
             <path
               strokeLinecap="round"
@@ -70,12 +70,12 @@ export function VerifyPhone() {
           })}
         />
         {errors.phone_code && (
-          <p className="text-red-600 text-sm">phone code must be a number</p>
+          <p className="text-red-700 text-sm">phone code must be a number</p>
         )}
 
         <button
           type="submit"
-          className="w-1/4 h-12 bg-red-600 mx-auto mt-3 text-white rounded mb-auto pb-auto"
+          className="w-1/4 h-12 mx-auto text-white rounded-lg mb-auto pb-auto bg-indigo-600 hover:bg-indigo-500 focus:bg-indigo-500 focus:outline-none"
         >
           Verify
         </button>
