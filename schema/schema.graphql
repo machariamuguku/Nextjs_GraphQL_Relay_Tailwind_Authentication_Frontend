@@ -1,0 +1,69 @@
+type FieldErrors {
+  field: String!
+  error: String!
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+type LoginUserPayload {
+  user: User
+  jwtToken: String
+  statusCode: Int!
+  message: String!
+  fieldErrors: [FieldErrors]!
+}
+
+type Mutation {
+  registerUser(input: RegisterUserInput!): RegisterUserPayload!
+  verifyEmail(emailVerificationToken: String!): VerifyEmailPayload!
+  verifyPhone(phoneVerificationToken: Int!): VerifyPhonePayload!
+}
+
+type Query {
+  loginUser(input: LoginUserInput!): LoginUserPayload!
+}
+
+input RegisterUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  password: String!
+  emailVerificationCallBackURL: String!
+}
+
+type RegisterUserPayload {
+  user: User
+  jwtToken: String
+  statusCode: Int!
+  message: String!
+  fieldErrors: [FieldErrors]!
+}
+
+scalar Time
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phoneNumber: String!
+  isEmailVerified: Boolean!
+  isPhoneVerified: Boolean!
+  createdAt: Time!
+  updatedAt: Time!
+}
+
+type VerifyEmailPayload {
+  statusCode: Int!
+  message: String!
+}
+
+type VerifyPhonePayload {
+  statusCode: Int!
+  message: String!
+}
+
